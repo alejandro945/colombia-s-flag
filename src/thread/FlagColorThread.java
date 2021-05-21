@@ -6,7 +6,7 @@ import ui.FlagUI;
 public class FlagColorThread extends Thread {
     private FlagColor flag;
     private FlagUI flagUI;
-    protected int sleepTime;
+    private int sleepTime;
 
     public FlagColorThread(FlagColor flag, FlagUI flagUI, int sleep) {
         this.flag = flag;

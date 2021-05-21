@@ -11,10 +11,11 @@ public class FlagUI {
     private static final String ESC = "\u001b[";
     private static final int COLORFLAGNUMBER = 3;
     private static final int COLORWIDTH = 80;
-    private static final int[] COLORHEIGTHS = new int[] { 16, 26, 36 };
-    private static final int[] COLORVPOSITIONS = new int[] { 0, 16, 26 };
-    private static final String[] COLORS = new String[] { "Y", "B", "R" };
-    private static final int[] COLORSLEEPTIMES = new int[] { 17, 40, 50 };
+    private static final int[] COLORHEIGTHS = new int[] { 16, 24, 32 };
+    private static final int[] COLORVPOSITIONS = new int[] { 0, 16, 24 };
+    private static final String[] COLORS = new String[] { ANSI_YELLOW_BACKGROUND, ANSI_BLUE_BACKGROUND,
+            ANSI_RED_BACKGROUND };
+    private static final int[] COLORSLEEPTIMES = new int[] { 15, 40, 50 };
     private FlagColorThread[] ft;
     private FlagColor[] flagcolor;
 
@@ -38,12 +39,12 @@ public class FlagUI {
     }
 
     public void refresh(int h, int v, String c) {
-        if (c.equals("Y")) {
-            System.out.print(ESC + h + "G" + ESC + v + "d" + ANSI_YELLOW_BACKGROUND + " " + ANSI_RESET);
-        } else if (c.equals("B")) {
-            System.out.print(ESC + h + "G" + ESC + v + "d" + ANSI_BLUE_BACKGROUND + " " + ANSI_RESET);
+        if (c.equals(ANSI_YELLOW_BACKGROUND)) {
+            System.out.print(ESC + h + "G" + ESC + v + "d" + c + " " + ANSI_RESET);
+        } else if (c.equals(ANSI_BLUE_BACKGROUND)) {
+            System.out.print(ESC + h + "G" + ESC + v + "d" + c + " " + ANSI_RESET);
         } else {
-            System.out.print(ESC + h + "G" + ESC + v + "d" + ANSI_RED_BACKGROUND + " " + ANSI_RESET);
+            System.out.print(ESC + h + "G" + ESC + v + "d" + c + " " + ANSI_RESET);
         }
     }
 
